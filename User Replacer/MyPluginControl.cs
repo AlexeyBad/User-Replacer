@@ -40,14 +40,6 @@ namespace User_Replacer
             {
                 LogInfo("Settings found and loaded");
             }
-            var request = new RetrieveAllEntitiesRequest
-            {
-                EntityFilters = EntityFilters.Entity
-            };
-
-            var response = (RetrieveAllEntitiesResponse)_service.Execute(request);
-            var entities = response.EntityMetadata.Select(em => em.LogicalName).OrderBy(name => name).ToList();
-            checkedListBoxEntities.DataSource = entities;
 
             buttonSearchOwner.Enabled = false;
             buttonSearchCustom.Enabled = false;
@@ -410,6 +402,26 @@ namespace User_Replacer
                 ResultsForm.DisplayResultsDataGriedView.Rows.Add(eEntity.Id, eEntity.GetAttributeValue<string>("name"));
             }
             ResultsForm.Show();
+        }
+
+        private void buttonLoadEntities_Click(object sender, EventArgs e)
+        {
+            var request = new RetrieveAllEntitiesRequest
+            {
+                EntityFilters = EntityFilters.Entity
+            };
+
+            try
+            {
+                var response = (RetrieveAllEntitiesResponse)_service.Execute(request);
+                var entities = response.EntityMetadata.Select(em => em.LogicalName).OrderBy(name => name).ToList();
+                checkedListBoxEntities.DataSource = entities;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
     }
 }

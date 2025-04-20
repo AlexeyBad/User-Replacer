@@ -35,7 +35,6 @@
             this.labelNewUser = new System.Windows.Forms.Label();
             this.buttonResolveUser = new System.Windows.Forms.Button();
             this.buttonSearchOwner = new System.Windows.Forms.Button();
-            this.listViewOldUser = new System.Windows.Forms.ListView();
             this.listViewNewUser = new System.Windows.Forms.ListView();
             this.buttonReplace = new System.Windows.Forms.Button();
             this.checkedListBoxEntities = new System.Windows.Forms.CheckedListBox();
@@ -50,6 +49,8 @@
             this.buttonCompareRoles = new System.Windows.Forms.Button();
             this.buttonCompareTeams = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.listViewOldUser = new System.Windows.Forms.ListView();
+            this.buttonLoadEntities = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCustomEntities)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -98,23 +99,13 @@
             // 
             // buttonSearchOwner
             // 
-            this.buttonSearchOwner.Location = new System.Drawing.Point(479, 400);
+            this.buttonSearchOwner.Location = new System.Drawing.Point(479, 430);
             this.buttonSearchOwner.Name = "buttonSearchOwner";
             this.buttonSearchOwner.Size = new System.Drawing.Size(227, 23);
             this.buttonSearchOwner.TabIndex = 12;
             this.buttonSearchOwner.Text = "Preview";
             this.buttonSearchOwner.UseVisualStyleBackColor = true;
             this.buttonSearchOwner.Click += new System.EventHandler(this.ButtonSearchOwner_Click);
-            // 
-            // listViewOldUser
-            // 
-            this.listViewOldUser.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.listViewOldUser.HideSelection = false;
-            this.listViewOldUser.Location = new System.Drawing.Point(16, 107);
-            this.listViewOldUser.Name = "listViewOldUser";
-            this.listViewOldUser.Size = new System.Drawing.Size(198, 272);
-            this.listViewOldUser.TabIndex = 16;
-            this.listViewOldUser.UseCompatibleStateImageBehavior = false;
             // 
             // listViewNewUser
             // 
@@ -128,7 +119,7 @@
             // 
             // buttonReplace
             // 
-            this.buttonReplace.Location = new System.Drawing.Point(479, 439);
+            this.buttonReplace.Location = new System.Drawing.Point(479, 469);
             this.buttonReplace.Name = "buttonReplace";
             this.buttonReplace.Size = new System.Drawing.Size(227, 23);
             this.buttonReplace.TabIndex = 18;
@@ -139,7 +130,7 @@
             // checkedListBoxEntities
             // 
             this.checkedListBoxEntities.FormattingEnabled = true;
-            this.checkedListBoxEntities.Location = new System.Drawing.Point(479, 45);
+            this.checkedListBoxEntities.Location = new System.Drawing.Point(479, 67);
             this.checkedListBoxEntities.Name = "checkedListBoxEntities";
             this.checkedListBoxEntities.Size = new System.Drawing.Size(227, 334);
             this.checkedListBoxEntities.TabIndex = 19;
@@ -247,10 +238,32 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Settings";
             // 
+            // listViewOldUser
+            // 
+            this.listViewOldUser.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.listViewOldUser.HideSelection = false;
+            this.listViewOldUser.Location = new System.Drawing.Point(16, 107);
+            this.listViewOldUser.Name = "listViewOldUser";
+            this.listViewOldUser.Size = new System.Drawing.Size(198, 272);
+            this.listViewOldUser.TabIndex = 16;
+            this.listViewOldUser.UseCompatibleStateImageBehavior = false;
+            // 
+            // buttonLoadEntities
+            // 
+            this.buttonLoadEntities.Location = new System.Drawing.Point(479, 47);
+            this.buttonLoadEntities.Name = "buttonLoadEntities";
+            this.buttonLoadEntities.Size = new System.Drawing.Size(227, 23);
+            this.buttonLoadEntities.TabIndex = 35;
+            this.buttonLoadEntities.Text = "Load";
+            this.buttonLoadEntities.UseVisualStyleBackColor = true;
+            this.buttonLoadEntities.Click += new System.EventHandler(this.buttonLoadEntities_Click);
+            // 
             // MyPluginControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.buttonLoadEntities);
+            this.Controls.Add(this.listViewOldUser);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonResolveUser);
             this.Controls.Add(this.buttonCompareRoles);
@@ -263,7 +276,6 @@
             this.Controls.Add(this.checkedListBoxEntities);
             this.Controls.Add(this.buttonReplace);
             this.Controls.Add(this.listViewNewUser);
-            this.Controls.Add(this.listViewOldUser);
             this.Controls.Add(this.buttonSearchOwner);
             this.Controls.Add(this.labelNewUser);
             this.Controls.Add(this.textBoxNewUser);
@@ -289,7 +301,6 @@
         private System.Windows.Forms.Label labelNewUser;
         private System.Windows.Forms.Button buttonResolveUser;
         private System.Windows.Forms.Button buttonSearchOwner;
-        private System.Windows.Forms.ListView listViewOldUser;
         private System.Windows.Forms.ListView listViewNewUser;
         private System.Windows.Forms.Button buttonReplace;
         private System.Windows.Forms.CheckedListBox checkedListBoxEntities;
@@ -304,5 +315,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Entity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Field;
+        private System.Windows.Forms.ListView listViewOldUser;
+        private System.Windows.Forms.Button buttonLoadEntities;
     }
 }
